@@ -1,0 +1,74 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Contact Form </title>
+  
+  <% include partials/nav.ejs %>
+  
+  
+      <link rel="stylesheet" href="/public/styles.css">
+
+  
+</head>
+
+<body>
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<header class="ccheader">
+    <h1>Complex Query</h1>  
+</header>
+<div class="wrapper">
+
+
+    <form id="inq_form" method="POST" action="/Complex" class="ccform">
+
+
+     
+</header>
+<h2>What are the top 20 causes of death under the age of:</h2>
+    <div class="ccfield-prepend">
+        <span class="ccform-addon"><i class="fa fa-user fa-2x"></i></span>
+        <input class="ccformfield" type="text" placeholder="Type Age" list="sex_suggestions" name="age" value="<%= qs.Sex %>">
+                <datalist id="sex_suggestions">
+                    
+                </datalist>
+    </div>
+
+<h2>in descending order that did not occur in : </h2>
+     <div class="ccfield-prepend">
+        <span class="ccform-addon"><i class="fa fa-user fa-2x"></i></span>
+        <input class="ccformfield" type="text" placeholder="Month" list="race_suggestions" name="month" value="<%= qs.Race %>">
+                <datalist id="race_suggestions">
+                    <option value="1">
+                    <option value="2">
+                    <option value="3">
+                    <option value="4">
+                    <option value="5">
+                    <option value="6">
+                    <option value="7">
+                    <option value="8">
+                    <option value="9">
+                    <option value="10">
+                    <option value="11">
+                    <option value="12">
+                </datalist>
+    </div>
+
+      
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+    <div class="ccfield-prepend">
+        <input class="ccbtn" type="submit" value="Submit">
+    </div>
+</div>
+<div class="credit">
+
+
+</div>
+  
+  
+</body>
+</html>
+</html>

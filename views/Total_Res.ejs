@@ -1,0 +1,34 @@
+<html>
+<head>
+<% include partials/nav.ejs %>
+<%
+     if (typeof localStorage === "undefined" || localStorage === null) 
+        {
+        var LocalStorage = require('node-localstorage').LocalStorage;
+        localStorage = new LocalStorage('./scratch');
+        }
+%>
+
+   <% 
+   console.log("Getting "+localStorage.getItem("sql_statement"));
+   sql_statement=localStorage.getItem("sql_statement");
+   
+   var csv_sql=sql_statement.split(',');
+   %>
+
+<!--Load the AJAX API-->
+    
+  </head>
+  
+
+
+
+<body>
+
+<p><%=csv_sql[0]%></p>
+
+<div id = "chart_div"></div>
+</body>
+</html>
+</body>
+

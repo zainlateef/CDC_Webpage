@@ -1,0 +1,91 @@
+<html>
+<head>
+<% include partials/nav.ejs %>
+<%
+     if (typeof localStorage === "undefined" || localStorage === null) 
+        {
+        var LocalStorage = require('node-localstorage').LocalStorage;
+        localStorage = new LocalStorage('./scratch');
+        }
+
+  	 	sql_statement=localStorage.getItem("sql_statement");
+   		var csv_sql=sql_statement.split(',');
+%>
+
+   <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['table']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawTable);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawTable() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'ID');
+        data.addColumn('string', 'Place of Death'); 
+        data.addColumn('string', 'InjuryAtWork');
+        data.addColumn('string', 'Manner of Death');
+        data.addColumn('string', 'Method of Disposition');
+        data.addColumn('string', 'Autopsy');
+        data.addColumn('string', 'activity');
+        data.addColumn('string', 'Cause');
+        data.addColumn('string', 'Education');
+        data.addColumn('string', 'Sex');
+        data.addColumn('string', 'AgeType');
+        data.addColumn('number', 'Age');
+        data.addColumn('string', 'Maritial Status');
+        data.addColumn('string', 'Race');
+        data.addColumn('number', 'Month');
+        data.addColumn('number', 'Day');             
+        
+        <% console.log("The length is = " + csv_sql.length) %>
+
+        <% for( i=0 ; i < csv_sql.length ; i = i + 16 ) { %>
+          
+          data.addRows([
+            [<%=csv_sql[i]%>,'<%=csv_sql[i+1]%>','<%=csv_sql[i+2]%>','<%=csv_sql[i+3]%>','<%=csv_sql[i+4]%>','<%=csv_sql[i+5]%>','<%=csv_sql[i+6]%>','<%=csv_sql[i+7]%>','<%=csv_sql[i+8]%>','<%=csv_sql[i+9]%>','<%=csv_sql[i+10]%>',<%=csv_sql[i+11]%>,'<%=csv_sql[i+12]%>','<%=csv_sql[i+13]%>',<%=csv_sql[i+14]%>,<%=csv_sql[i+15]%>
+            ]
+            ])
+          
+          
+        //data.addRows([
+          //[a, b]
+          //]);
+        <%}%>
+        
+
+        // Set chart options
+        var options = {'title':'Average Age',
+                       'width':'100%',
+                       'height':'100%'
+                   	};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.Table(document.getElementById('table_div'));
+        var formatter = new google.visualization.ColorFormat();
+		formatter.addRange(0, 150000, 'black', 'orange');
+		formatter.format(data, 0);
+        chart.draw(data, options);
+
+
+      }
+    </script>
+  </head>
+  
+
+
+
+<body>
+
+
+<div id = "table_div"></div>
+</body>
+</html>
+</body>

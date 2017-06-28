@@ -1,0 +1,126 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Contact Form </title>
+  
+  <% include partials/nav.ejs %>
+  
+  
+      <link rel="stylesheet" href="/public/styles.css">
+
+  
+</head>
+
+<body>
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<header class="ccheader">
+    <h1>Average Age of Death</h1>  
+</header>
+<div class="wrapper">
+
+
+    <form id="inq_form" method="POST" action="/Inquiries" class="ccform">
+
+
+    <h1>Who</h1>  
+</header>
+
+    <div class="ccfield-prepend">
+        <span class="ccform-addon"><i class="fa fa-user fa-2x"></i></span>
+        <input class="ccformfield" type="text" placeholder="Sex" list="sex_suggestions" name="sex" value="<%= qs.Sex %>">
+                <datalist id="sex_suggestions">
+                    <option value="Male">
+                    <option value="Female">
+                </datalist>
+    </div>
+
+     <div class="ccfield-prepend">
+        <span class="ccform-addon"><i class="fa fa-user fa-2x"></i></span>
+        <input class="ccformfield" type="text" placeholder="Race" list="race_suggestions" name="race" value="<%= qs.Race %>">
+                <datalist id="race_suggestions">
+                    <option value="White">
+                    <option value="Black">
+                    <option value="American Indian">
+                    <option value="Chinese">
+                    <option value="Japanese">
+                    <option value="Hawaiian">
+                    <option value="Filipino">
+                    <option value="Asian Indian">
+                    <option value="Korean">
+                    <option value="Samoan">
+                    <option value="Vietnamese">
+                    <option value="Guamanian">
+                    <option value="Asian or Pacific Islander">
+                </datalist>
+    </div>
+
+      <div class="ccfield-prepend">
+        <span class="ccform-addon"><i class="fa fa-user fa-2x"></i></span>
+        <input class="ccformfield" type="text" placeholder="Education" list="education_suggestions" name="education" value="<%= qs.Education %>">
+                <datalist id="education_suggestions">
+                    <option value="8th grade or less">
+                    <option value="9 - 12th grade">
+                    <option value="High School graduate or GED completed">
+                    <option value="College Credit">
+                    <option value="Associate degree">
+                    <option value="Bachelor’s degree">
+                    <option value="Master’s degree">
+                    <option value="Doctorate or professional degree">
+                </datalist>
+    </div>
+
+
+     <div class="ccfield-prepend">
+        <span class="ccform-addon"><i class="fa fa-user fa-2x"></i></span>
+        <input class="ccformfield" type="text" placeholder="Marital Status" list="marr_suggestions" name="marital_status" value="<%= qs.MaritalStatus %>">
+    <datalist id="marr_suggestions">
+        <option value="Single">
+        <option value="Married">
+        <option value="Widowed">
+        <option value="Divorced">
+            </datalist>
+    </div>
+
+    <div class="ccfield-prepend">
+        <span class="ccform-addon"><i class="fa fa-user fa-2x"></i></span>
+        <input class="ccformfield" type="text" placeholder="Cause of Death" list="cause0_suggestions" name="cause_0" value="<%= qs.Cause0 %>">
+    <datalist id="cause0_suggestions">
+        <option value="Accident">
+        <option value="Suicide">
+        <option value="Homicide">
+        <option value="Pending Investigation">
+        <option value="Could not determine">
+        <option value="Self-Inflicted">
+            </datalist>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+<div>
+  <p>Compare</p>
+  <label>
+    <input type="radio" checked="checked" name="GroupBy" value="Sex"/>Sex</label>
+  <label>
+    <input type="radio" name="GroupBy" value="Race"/>Race</label>
+  <label>
+    <input type="radio" name="GroupBy" value="Education2"/>Education</label>
+     <label>
+    <input type="radio" name="GroupBy" value ="MaritalStatus"/>Marital Status</label>
+     <label>
+    <input type="radio" name="GroupBy" value="MannerofDeath"/>Cause of Death</label>
+</div>
+<div>
+
+
+    <div class="ccfield-prepend">
+        <input class="ccbtn" type="submit" value="Submit">
+    </div>
+</div>
+
+  
+  
+</body>
+</html>
+</html>

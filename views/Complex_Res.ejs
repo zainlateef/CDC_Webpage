@@ -1,0 +1,39 @@
+
+<% include partials/nav.ejs %>
+<%
+     if (typeof localStorage === "undefined" || localStorage === null) 
+        {
+        var LocalStorage = require('node-localstorage').LocalStorage;
+        localStorage = new LocalStorage('./scratch');
+        }
+%>
+
+   <% 
+   console.log("Getting "+localStorage.getItem("sql_statement"));
+   sql_statement=localStorage.getItem("sql_statement");
+   
+   var csv_sql=sql_statement.split(',');
+   console.log("Hi"+csv_sql[0]);
+   %>
+
+   <p>1. <%=csv_sql[0]%></p>
+   <p>2. <%=csv_sql[1]%></p>
+   <p>3. <%=csv_sql[2]%></p>
+   <p>4. <%=csv_sql[3]%></p>
+   <p>5. <%=csv_sql[4]%></p>
+   <p>6. <%=csv_sql[5]%></p>
+   <p>7. <%=csv_sql[6]%></p>
+   <p>8. <%=csv_sql[7]%></p>
+   <p>9. <%=csv_sql[8]%></p>
+   <p>10. <%=csv_sql[9]%></p>
+   <p>11. <%=csv_sql[10]%></p>
+   <p>12. <%=csv_sql[11]%></p>
+   <p>13. <%=csv_sql[12]%></p>
+   <p>14. <%=csv_sql[13]%></p>
+   <p>15. <%=csv_sql[14]%></p>
+   <p>16. <%=csv_sql[15]%></p>
+   <p>17. <%=csv_sql[16]%></p>
+   <p>18. <%=csv_sql[17]%></p>
+   <p>19. <%=csv_sql[18]%></p>
+   <p>20. <%=csv_sql[19]%></p>
+
